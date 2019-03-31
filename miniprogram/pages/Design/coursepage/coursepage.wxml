@@ -1,0 +1,39 @@
+<view style='width:100%;height:100%;text-align:center;' >
+<view class='card'>
+  {{classTitle}}
+<!-- 视频接口待完善 -->
+  <view class='card-class'>
+    <video src='{{classVideoUrl}}'></video>
+  </view>
+  内容介绍
+  <view class='card-class'>
+    <view class='text'>{{classContent}}</view>
+  </view>
+  本课作业
+  <view class='card-class'>
+  <view class='text'>读完故事，请你想一想：</view></view>
+   <view class='card-class' wx:for='{{worksSub}}' wx:key='{{}}'>
+    <view class='text'>{{item}}</view>
+  </view>
+
+    作业要求
+  <view class='card-class'>
+    <view class='text'>{{Classworks}}</view>
+  </view>
+
+</view>
+
+<view class='card'>
+ <view class='text-sec'>截止时间：{{classEndTime}}</view>
+  <!-- 上传图片-->
+  <view class="uploader">
+    <view class="uploader-text" bindtap="doUpload">
+      <text>上传图片</text>
+    </view>
+    <view class="uploader-container" wx:if="{{imgUrl}}">
+      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
+    </view>
+  </view>
+</view>
+
+</view>

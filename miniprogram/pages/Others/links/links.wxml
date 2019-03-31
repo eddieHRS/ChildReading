@@ -1,0 +1,2 @@
+<!--pages/Others/links/links.wxml-->
+<web-view src='{{purchaseLink}}'></web-view> 

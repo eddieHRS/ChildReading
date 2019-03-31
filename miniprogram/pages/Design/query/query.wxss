@@ -1,0 +1,79 @@
+/* pages/Design/query/query.wxss */
+page {
+  font-size: 30rpx;
+}
+.btn2 {
+  background-image: url('https://i.loli.net/2019/02/23/5c71010239337.jpeg'); 
+}
+.card-top {
+align-items: center;
+}
+.card-1,.card-2,.card-3,.card-4 {
+border: 2rpx solid #7da3c7;
+border-radius: 20rpx;
+margin: 40rpx;
+padding: 20rpx;
+font-size: 28rpx;
+width: 580rpx;
+}
+.card-1 {  
+background-color: #fcfae1;
+}
+.card-2 {
+background-color: #fcfac9;
+}
+.card-3 {
+  background-color: #fcfbab;
+}
+.card-4 {
+  background-color: #fbfaa0;
+}
+.text-line {
+  border-bottom: 2rpx solid #7da3c7;
+}
+.text-block {
+  height: 200rpx;
+  width: 520rpx;
+  border: 2rpx solid #7da3c7;
+  background-color: #fff;
+  margin: 28rpx;
+  text-align: center;
+}
+.wrap{
+  width: 550rpx;
+  margin: 50rpx auto
+}
+.checkbox-con{
+  margin-top: 40rpx;
+  text-align: center
+}
+.checkbox{
+  width: 260rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 28rpx;
+  color: #888888;
+  border: 1rpx solid #CECECE;
+  border-radius: 5rpx;
+  display: inline-block;
+  margin: 0 10rpx 20rpx 0;
+  position: relative
+}
+
+.checked {
+  color: #1A92EC;
+  background: rgba(49,165,253,0.08);
+  border: 1rpx solid #31A5FD;
+}
+
+.checkbox checkbox{
+  display: none
+}
+
+.checked-img{
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  top: 0;
+  right: 0
+}

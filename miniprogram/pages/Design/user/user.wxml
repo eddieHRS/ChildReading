@@ -1,0 +1,38 @@
+<!--index.wxml-->
+ <image src='https://i.loli.net/2019/02/23/5c70f7d942c4b.jpeg' style='width:100%;height:80rpx'></image>
+  <view class='card-top'>
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    ></button>
+    <view>
+      {{userInfo.nickName}}
+      <view class='btn-green' bindtap='goToQuery'>阅力评测</view>
+    </view>
+  </view>
+
+<view class='card-top'>
+  <view class='card-info'>
+    <view class='table'>
+      <view class='tr'>
+        <view class='td'>积分：{{credits}}</view>
+         <view class='td'><view class='question'>积分兑换 unable</view> </view>
+      </view>
+      <view class='tr'>
+        <view class='td'>等级：{{ranks}}</view>
+        <view class='td'><view class='question'>更新推荐 unable</view> </view>
+      </view>
+    </view>
+  </view>
+  
+</view>
+
+  
+  </view>
+
+
+

@@ -1,0 +1,62 @@
+<!--pages/Design/query/query.wxml-->
+ <image src='https://i.loli.net/2019/02/23/5c70f7d942c4b.jpeg' style='width:100%;height:80rpx'></image>
+ <view style='width:100%;height:100%;text-align:center;' >
+  <image src='https://i.loli.net/2019/02/23/5c70fd9deb857.jpeg' style='width:300rpx;height:58rpx'></image>
+  <view class='card-top'>
+    请完善您孩子的基本信息
+    <view class='card-1'>
+    <input class='text-line' name='childName' placeholder='请输入孩子姓名' bindinput='nameInput'></input>
+    <input class='text-line' name='childAge' placeholder='请输入孩子年龄' bindinput='ageInput'></input>
+    <input class='text-line' name='childGender' placeholder='请输入孩子性别' bindinput='genderInput'></input>
+    <input class='text-line' name='childCity' placeholder='请输入所在城市' bindinput='cityInput'></input>
+    </view>
+
+    请选择您孩子的年级
+    <view class='card-1'>  
+    <view class='wrap'>  
+      <view class='checkbox-con'>   
+       <radio-group bindchange="radioChange">      
+       <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{checkboxArr}}" bindtap='radio' data-index="{{index}}" wx:key="item.name">        
+       <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}      
+       </label>    
+       </radio-group>     
+      </view>
+      </view>
+    </view>
+    
+    
+    请您的孩子完成以下问题
+
+    <view class='card-2'>
+    这些图书你读过哪些？
+    <view class='wrap'>  
+      <view class='checkbox-con'>   
+       <checkbox-group bindchange="checkboxChange">      
+       <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{checkboxArr2}}" bindtap='checkbox' data-index="{{index}}" wx:key="item.name">        
+       <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}      
+       </label>    
+       </checkbox-group>     
+      </view>
+      </view>
+    </view>
+    <view class='card-3'>
+    这段文字的意思是什么？
+    <view class='wrap'>  
+      <view class='checkbox-con'>   
+       <radio-group bindchange="radioChange3">      
+       <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{checkboxArr3}}" bindtap='radio3' data-index="{{index}}" wx:key="item.name">        
+       <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}      
+       </label>    
+       </radio-group>     
+      </view>
+      </view>
+    </view>
+    <view class='card-4'>
+    你最喜欢的图书有哪些？
+    <textarea class='text-block' name='favoriteBooks' bindblur='booksInput'  value='{{answer_booksFavorite}}'></textarea> 
+    </view>
+  </view>
+   <button class='btn2' style='submit' bindtap='confirm'></button>
+ </view>
+
+  

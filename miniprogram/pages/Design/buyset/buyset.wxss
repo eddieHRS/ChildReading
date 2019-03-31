@@ -1,0 +1,30 @@
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.text {
+  font-size: 26rpx;
+  padding: 5rpx;
+  width: 100%;
+  text-align: center;
+}
+.tui-picker-content{
+  padding-top: 40rpx;
+  text-align: center;
+  color: #000;
+}
+.tui-picker-name{
+  font-size: 35rpx;
+  height: 40rpx;
+  line-height: 10rpx;
+  border-bottom: 1px solid #c8c7cc;
+  margin-bottom: 5px;
+}
+.card-class {
+  margin: 0;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+}

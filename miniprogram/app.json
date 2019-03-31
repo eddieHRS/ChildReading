@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/Design/index/index",
+    "pages/Design/department/department",
+    "pages/Design/coursepage/coursepage",
+    "pages/Design/course/course",
+    "pages/Design/user/user",
+    "pages/Design/query/query",
+    "pages/Design/recomd/recomd",
+    "pages/Design/myclass/myclass",
+    "pages/Design/buyset/buyset",
+    "pages/Others/addFunction/addFunction",
+    "pages/Others/userConsole/userConsole",
+    "pages/Others/databaseGuide/databaseGuide",
+    "pages/Others/storageConsole/storageConsole",
+    "pages/Others/chooseLib/chooseLib",
+    "pages/Others/deployFunctions/deployFunctions",
+    "pages/Others/links/links"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#cee7fd",
+    "navigationBarTitleText": "未命名标题",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#000",
+    "backgroundColor": "#cee7fd",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/Design/index/index",
+        "iconPath": "images/nav_index_0.png",
+        "selectedIconPath": "images/nav_index_1.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/Design/myclass/myclass",
+        "iconPath": "images/nav_search_0.png",
+        "selectedIconPath": "images/nav_search_1.png",
+        "text": "课程"
+      },
+      {
+        "pagePath": "pages/Design/user/user",
+        "iconPath": "images/nav_user_0.png",
+        "selectedIconPath": "images/nav_user_1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 30000,
+    "connectSocket": 3000,
+    "uploadFile": 3000,
+    "downloadFile": 3000
+  },
+  "debug": true
+}

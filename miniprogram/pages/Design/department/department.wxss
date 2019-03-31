@@ -1,0 +1,19 @@
+/* pages/department/department.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.tui-picker-content{
+  padding: 30rpx;
+  text-align: center;
+  color: #000;
+}
+.tui-picker-name{
+  font-size: 35rpx;
+  height: 40rpx;
+  line-height: 10rpx;
+  border-bottom: 1px solid #c8c7cc;
+  margin-bottom: 5px;
+}

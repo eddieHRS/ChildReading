@@ -1,0 +1,94 @@
+<!--index.wxml-->
+
+<view class='card-top'>
+<!-- 滚动页 -->
+  <!-- 滚动广告图待替换 -- from 本地 or 数据库 -->
+  <view class="swiper-container">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" indicator-color="{{beforeColor}}" indicator-active-color="{{afterColor}}" class="swiper">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <swiper-item>
+        <image src="{{item}}" class="img" bindtap="swipclick" />
+      </swiper-item>
+    </block>
+  </swiper>
+  </view>
+
+<!-- 分类导航 -->
+  <view class='card'>
+  <view class="select-title"></view>
+  <!-- 课程图标待替换 -- from 本地 or 数据库 -->
+  <view class="select-top">
+            <view class="select-top-small">
+                    <view class="btn-yellow" bindtap='clickjump' data-value='0'>3-6岁</view>
+            </view>
+            <view class="select-top-small">
+                    <view class="btn-yellow" bindtap='clickjump' data-value='1'>7-9岁</view>
+            </view>
+            <view class="select-top-small">
+                    <view class="btn-yellow" bindtap='clickjump' data-value='2'>10-12岁</view>
+            </view>
+            <view class="select-top-small">
+                    <view class="btn-yellow" bindtap='clickjump' data-value='3'>动物朋友</view>
+            </view>
+            <view class="select-top-small">
+                    <view class="btn-yellow" bindtap='clickjump' data-value='4'>探险奇遇</view>
+            </view>
+            <view class="select-top-small">
+                    <view class="btn-yellow" bindtap='clickjump' data-value='5'>成长故事</view>
+            </view>
+        </view>
+      </view>
+<!-- 分类2 -->
+<view class='card'>
+<view class="select-title">套课购买</view>  
+  <view class='select-bottom'>
+      <image src='https://i.loli.net/2019/03/18/5c8ee8a18d219.jpg' style='width:100%;height:100rpx' bindtap='clickjump2'
+       data-value='6'></image>
+      <image src='https://i.loli.net/2019/03/18/5c8ee916dc4bc.jpg' style='width:100%;height:100rpx' bindtap='clickjump2'
+       data-value='7'></image>
+      <image src='https://i.loli.net/2019/03/18/5c8ee9241b197.jpg' style='width:100%;height:100rpx' bindtap='clickjump2'
+       data-value='8'></image>
+  </view>
+</view>
+<!-- 课程列表 -->
+    <!-- 课程待替换 -- from 本地 or 数据库top3 -->
+<!--
+    <view class='select-bottom'>
+  <view class='card-class'>
+    <view class='table'>
+    <view class='tr'>
+      <view class='td'><image src="../../../images/top_1.png" style='width:50rpx; height:50rpx; padding-right:10rpx; padding-top:10rpx'></image></view>
+      <view class='td'><image src='{{pageImgUrls[0]}}' class='img' mode='widthFix' style='width:90rpx; border: 1rpx solid rgba(0,0,0, 0.1)'></image></view>
+      <view class='td-text'>
+      <view class='td-text-h'>{{courseTitle[0]}}</view>
+      {{courseIntro[0]}}</view>
+    </view>
+    </view>
+  </view>
+  <view class='card-class'>
+    <view class='table'>
+    <view class='tr'>
+      <view class='td'><image src="../../../images/top_2.png" style='width:50rpx; height:50rpx; padding-right:10rpx; padding-top:10rpx'></image></view>
+      <view class='td'><image src='{{pageImgUrls[1]}}' mode='widthFix' style='width:90rpx; border: 1rpx solid rgba(0,0,0, 0.1)'></image></view>
+      <view class='td-text'>
+      <view class='td-text-h'>{{courseTitle[1]}}</view>
+      {{courseIntro[1]}}</view>
+    </view>
+    </view>
+  </view>
+  <view class='card-class'>
+    <view class='table'>
+    <view class='tr'>
+      <view class='td'><image src="../../../images/top_3.png" style='width:50rpx; height:50rpx; padding-right:10rpx; padding-top:10rpx'></image></view>
+      <view class='td'><image src='{{pageImgUrls[0]}}' mode='widthFix' style='width:90rpx; border: 1rpx solid rgba(0,0,0, 0.1)'></image></view>
+      <view class='td-text'>
+      <view class='td-text-h'>{{courseTitle[2]}}</view>
+      {{courseIntro[2]}}</view>
+    </view>
+    </view>
+  </view>
+    </view>
+  </view>
+-->
+</view>
+

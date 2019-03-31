@@ -1,0 +1,25 @@
+/* pages/course/course.wxss */
+page {
+  font-size: 30rpx;
+}
+.btn3 {
+  border: 0;
+}
+.card-box {
+border: 2rpx solid #7da3c7;
+border-radius: 20rpx;
+margin: 40rpx;
+padding: 20rpx;
+font-size: 28rpx;
+width: 580rpx;
+background-color: #edf8fe;
+}
+
+.card-top {
+align-items: center;
+}
+.text-sec {
+  font-size: 26rpx;
+  padding: 5rpx;
+  color: #aeb9bf;
+}

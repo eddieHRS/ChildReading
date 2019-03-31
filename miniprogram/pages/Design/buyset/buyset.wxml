@@ -1,0 +1,17 @@
+<view class='card'>
+<view class="tui-picker-content">
+  <view class="tui-picker-name">课程列表</view>
+</view>
+
+<view class='card-class' wx:for="{{set_classList}}" wx:key=''>
+      <view class='text'>{{item}}</view>
+
+</view>
+
+<view class="tui-picker-content">
+  <view class="tui-picker-name">授课老师</view>
+</view>
+<view class='text'>{{set_teacher}}</view>
+
+<button class='btn3' bindtap='pay'>加入课程</button>
+</view>
