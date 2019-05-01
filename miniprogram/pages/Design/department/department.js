@@ -27,13 +27,14 @@ Page({
     var that = this
     wx.request({
       url: '',
-      method: "POST",
+      method: "GET",
       data: {
         'func_id' : 0,
 
       },
       header: {'Content_Type' : 'application/x-www-form-urlencoded'},
       success : function(res) {
+        console.log(res)
         that.setData({
           lst : res.data
         })

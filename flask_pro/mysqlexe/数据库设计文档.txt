@@ -1,0 +1,155 @@
+﻿学生信息表
+主键：stu_id
+外键：无
+create table student_info(
+	stu_id varchar(15), --微信的openid
+	credit int,  --学生获得的积分
+	qresult varchar(50), --问卷调查的结果
+	rec_result varchar(25), --推荐结果
+	primary key(stu_id)
+);
+
+
+
+教师信息表
+主键:teaid
+外键：无
+create table teacher_info(
+	tea_id varchar(15),教师的id
+	tea_email varchar(50),教师的email
+	tea_name varchar(25), 教师的姓名
+	password varchar(25), 教师端的登陆密码
+	teacher_intro varchar(255), 教师的简介
+	primary key(tea_id)
+);
+
+
+套课信息表
+主键:scourse_id
+外键：无
+create table setcourse_info(
+	scourse_id varchar(15), 套课的id
+	scourse_title varchar(60),套课的标题
+	scourse_theme varchar(50),套课所属的主题
+	scourse_stage varchar(50),套课适合的年龄阶段
+	pageimg_urls varchar(255), 套课封面图片的url地址
+	scourse_intro varchar(255), 套课的介绍
+	buylink varchar(255),  套课相关书籍的购买链接
+	scourse_credit int, 套课的积分
+	scourse_price demical(10,2), 套课的价格
+	primary key(scourse_id)
+);
+
+
+单课信息表
+主键：pcourse_id
+外键：无
+create table percourse_info(
+	pcourse_id varchar(15), 单课的id
+	pcourse_name varchar(50), 单课的名称
+	vedio_url varchar(255), 单课相关视频的url地址
+	pcourse_intro text, 单课的简介
+	pcourse_pageimgurl varchar(255),单课封面的地址
+	primary key(pcourse_id)
+);
+
+
+套课组成情况表（由哪些单课组成）
+主键：id
+外键：scourse_id 参照 setcourse_info
+      pcourse_id 参照 percourse_info
+create table s_p_class_info(
+	id varchar(15), 主键
+	scourse_id varchar(15), 套课id
+	pcourse_id varchar(15), 单课id
+	thenumber int(2), 单课在该套课中的节次
+	primary key(id),
+	foreign key(scourse_id) references setcourse_info(scourse_id) on delete cascade on update cascade,
+	foreign key(pcourse_id) references percourse_info(pcourse_id) on delete cascade on update cascade
+);
+
+
+题库
+主键：pro_id
+外键：scourse_id 参照 setcourse_info
+      pcourse_id 参照 percourse_info
+create table problems(
+	pro_id varchar(15),题号
+	pro_stem text,题干
+	choice text,选项内容
+	answer char(1),答案 A,B,C,D
+	flag int,标记是否是主观题  主观题（1）  客观题（0）
+	scourse_id varchar(15), 哪个套课包含了这道题
+	pcourse_id varchar(15), 哪节单课包含了这道题
+	pro_num varchar(15),在单课的一套习题中，该题的题号
+	primary key(pro_id),
+	foreign key(scourse_id) references setcourse_info(scourse_id) on delete cascade on update cascade,
+	foreign key(pcourse_id) references percourse_info(pcourse_id) on delete cascade on update cascade
+);
+
+
+班级信息表
+主键：班级号
+外键：scourse_id 参照 setcourse_info
+      tea_id 参照teacher_info表
+create table class_info(
+	class_id varchar(15),班级号
+	tea_id varchar(15),任课教师
+	scourse_id varchar(15),该班级的配套课程
+	start_time date,开始时间
+	end_time date,结束时间
+	primary key(class_id),
+	foreign key(tea_id) references teacher_info(tea_id) on delete cascade on update cascade,
+	foreign key(scourse_id) references setcourse_info(scourse_id) on delete cascade on update cascade
+);
+
+选课信息表
+主键：无
+外键：scourse_id 参照 setcourse_info
+      stu_id 参照 student_info
+create table takes_table(
+	stu_id varchar(15), 学生id
+	scourse_id varchar(15),套课id
+	stage int,学生当前在该课程的哪个阶段，上到第几节课
+	foreign key(scourse_id) references setcourse_info(scourse_id) on delete cascade on update cascade,
+	foreign key(stu_id) references student_info(stu_id) on delete cascade on update cascade
+);
+ 
+
+
+学生所在班级的信息表
+主键：无
+外键：stu_id 参照 student_info
+      class_id 参照 class_info
+create table inclass(
+  stu_id varchar (15), 学生id
+  class_id varchar (15),班级id
+  foreign key(stu_id) references student_info(stu_id) on delete cascade on update cascade,
+  foreign key(class_id) references class_info(class_id) on delete cascade on update cascade
+);
+
+
+
+作业信息表
+主键：homework_id
+外键：class_id 参照 class_info
+      stu_id 参照 student_info
+      pcourse_id 参照 percourse_info
+create table homework_info(
+	homework_id varchar(15),条目的id
+	class_id varchar(15),班级id
+	stu_id varchar(15),学生id
+	pcourse_id varchar(15),单课id
+	done int,标记位  已提交,已批改（3） 已提交，未批改（2） 未提交，未批改（1）
+	comment text,老师的批改结果
+	store_url char(255),学生上传的url地址
+	primary key(homework_id),
+	foreign key(class_id) references class_info(class_id) on delete cascade on update cascade,
+	foreign key(stu_id) references student_info(stu_id) on delete cascade on update cascade,
+	foreign key(pcourse_id) references percourse_info(pcourse_id) on delete cascade on update cascade
+);
+
+
+url相关：1.套课封面图片
+         2 单课视频的url地址  vedio/pclass_id
+         3.学生上传的作业的url

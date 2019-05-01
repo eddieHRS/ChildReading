@@ -31,13 +31,14 @@ Page({
   onLoad : function () {
     var that = this
     wx.request({
-      url: '',
-      method: "POST",
+      url: 'http://127.0.0.1:5000/funid0',
+      method: "GET",
       data: {
         'func_id': 1
       },
       header: { 'Content_Type': 'application/x-www-form-urlencoded' },
       success:function(res) {
+        console.log("成功");
         that.setData({
           imgUrls:res.data.imgUrls,
           pageImgUrls:res.data.pageImgUrls,

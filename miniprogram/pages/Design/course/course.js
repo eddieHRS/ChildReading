@@ -11,9 +11,9 @@ Page({
   onLoad : function(option) {
     var that = this
     wx.request({
-      url: '',
-      method : "POST",
-      data : {"func_id" : 2, "course_id":option.course_upid},
+      url: 'http://127.0.0.1:5000/funid22',
+      method : "GET",
+      data : {},
       header: { 'Content_Type': 'application/x-www-form-urlencoded' },
       success : function(res)  {
         that.setData({
