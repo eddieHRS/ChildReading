@@ -1,3 +1,5 @@
+create database childreading;
+use childreading;
 create table student_info(
 	stu_id varchar(15),
 	credit int, 
