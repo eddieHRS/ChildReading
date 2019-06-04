@@ -6,45 +6,25 @@ conn = dc.conn
 cursor = conn.cursor()
 app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return "hello"
-
-@app.route('/funid2')
-def funid2():
-    resp = {'code': 200, 'msg': '操作成功', 'data': {}}
-    t = {}
-    t['courseId'] = 'IDfromback'
-    t['courseTitle'] = 'titlefrom'
-    t['coursePrice'] = '100000.00'
-    t['time'] = '2019:00:12'
-    t['courseContent'] = 'contenrrrrr'
-    resp['data'] = t
-    return jsonify(resp)
-
 @app.route('/funid0')
 def funid0():
     resp = {'code': 200,'msg': '操作成功', 'data': []}
     req = request.values
-    openid = req['openid'] if 'openid' in req else None
-    course = []
-    c1 = {
-        "pageImgUrls": "https://i.loli.net/2019/02/08/5c5d63058df87.png",
-        "courseTitle": "course_title_2",
-        "courseIntro": "course_intro_2",
-        "courseLinks": "course_links_2",
-        "Course_ID": "654321"
-    }
-    c2 = {
-        "pageImgUrls": "https://i.loli.net/2019/02/08/5c5d63058df87.png",
-        "courseTitle": "course_title_1",
-        "courseIntro": "course_intro_1",
-        "courseLinks": "course_links_1",
-        "Course_ID": "123456"
-    }
-    course.append(c1)
-    course.append(c2)
-    resp['data'] = course
+    type = req['type']
+    print(req['type'])
+    course_info = []
+    sql = "select pcourse_pageimgurl,pcourse_name,pcourse_intro,vedio_url,pcourse_id from percourse_info where type='%s'" % type
+    cursor.execute(sql)
+    re = cursor.fetchmany(5)
+    for i in re:
+        course_info.append({
+            "pageImgUrls": i[0] if i[0] else 'unknow',
+            "courseTitle": i[1] if i[1] else 'unknow',
+            "courseIntro": i[2] if i[2] else 'unknow_intro',
+            "courseLinks": i[3] if i[3] else 'unknow_link',
+            "Course_ID": i[4] if i[4] else 'unknow_id'
+        })
+    resp['data'] = course_info
     return jsonify(resp)
 
 @app.route('/funid1')
@@ -70,12 +50,19 @@ def funid1():
 @app.route('/funid2')
 def funid2():
     resp = {'code': 200,'msg': '操作成功', 'data': {}}
+    req = request.values
+    course_id = req['course_id']
+    print(course_id)
+    sql = "select pcourse_name,price,pcourse_intro from percourse_info where pcourse_id = '%s'" % course_id
+
+    cursor.execute(sql)
+    re = cursor.fetchone()
     resp['data'] = {
-        "courseId": 20190223,
-        "courseTitle": "标题示例",
-        "coursePrice": 0,
-        "time":"2019-02-23",
-        "courseContent": "这是一段课程内容简介",
+        "courseId": course_id,
+        "courseTitle": re[0],
+        "coursePrice": float(re[1]),
+        "time": "2019-02-23",
+        "courseContent": re[2],
         "teacherIntro": "这是一段教师简介"
     }
     return jsonify(resp)
@@ -95,7 +82,24 @@ def funid3():
         "worksObj": []
     }
     return jsonify(resp)
+@app.route('/buyset')
+def buyset():
+    resp = {'code': 200, 'msg': '操作成功', 'data': {}}
+    set_classList = ['《七只瞎老鼠》','《拼拼凑凑的变色龙》','《你很特别》','《黎明》','《迟到大王》']
+    set_teacher = '叶凤春老师'
+    temp = {'set_classList': set_classList, 'set_teacher': set_teacher}
+    resp['data'] = temp
+    return jsonify(resp)
 
+
+@app.route('/user')
+def user():
+    resp = {'code': 200, 'msg': '操作成功', 'data': {}}
+    resp['data'] = {
+        'credits': 20,
+        'ranks': 3000
+    }
+    return jsonify(resp)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)

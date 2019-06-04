@@ -16,8 +16,8 @@ Page({
   onLoad : function () {
     var that = this
     wx.request({
-      url: '',
-      method: "POST",
+      url: 'http://127.0.0.1:5000/funid3',
+      method: "GET",
       data: {
         'func_id': 3
       },
@@ -32,7 +32,7 @@ Page({
           classEndTime: res.data.classEndTime,
           classVideoUrl: res.data.classVideoUrl,
           worksSub: res.data.worksSub,//客观题 图片
-          worksObj: res.data.worksSub//主观题 选项结果
+          worksObj: res.data.worksObj//主观题 选项结果
         })
       }
     })

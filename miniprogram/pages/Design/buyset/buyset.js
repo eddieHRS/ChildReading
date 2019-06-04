@@ -14,17 +14,15 @@ Page({
   onLoad: function () {
     var that = this
     wx.request({
-      url: '',
-      method: "POST",
+      url: 'http://127.0.0.1:5000/buyset',
+      method: "GET",
       data: {
-        'func_id': 0,
-
       },
       header: { 'Content_Type': 'application/x-www-form-urlencoded' },
       success: function (res) {
         that.setData({
-          set_classList: res.data.set_classList,
-          set_teacher: res.data.set_teacher,
+          set_classList: res.data.data.set_classList,
+          set_teacher: res.data.data.set_teacher,
         })
       }
     })

@@ -5,38 +5,23 @@ var titleList = [
 Page({
   data: {
     //数据库中某类课的全部课程 n个
-    lst:[
-      {
-        'pageImgUrls' : 'https://i.loli.net/2019/02/08/5c5d63058df87.png',
-        'courseTitle' : 'course_title_1',
-        'courseIntro' : 'course_intro_1',
-        'courseLinks' : 'course_links_1',
-        'Course_ID' : '123456'
-      },
-      {
-        'pageImgUrls': 'https://i.loli.net/2019/02/08/5c5d63058df87.png',
-        'courseTitle': 'course_title_2',
-        'courseIntro': 'course_intro_2',
-        'courseLinks': 'course_links_2',
-        'Course_ID' : '654321'
-      }
-    ],
+    lst:{},
     index: 1
   },
-  onLoad:function () {
+  onLoad:function (e) {
     var that = this
+    var type = e.type;
     wx.request({
-      url: '',
+      url: 'http://127.0.0.1:5000/funid0',
       method: "GET",
       data: {
-        'func_id' : 0,
-
+        'type' : type,
       },
       header: {'Content_Type' : 'application/x-www-form-urlencoded'},
       success : function(res) {
-        console.log(res)
+        console.log(res.data.data)
         that.setData({
-          lst : res.data
+          lst : res.data.data
         })
       }
     })
@@ -46,7 +31,7 @@ Page({
         //console.log(res)
         var i = res.data
         wx.setNavigationBarTitle({
-        title: titleList[i],
+        title: '课程',
         })
         that.setData({index: res.data})
       } 
@@ -57,10 +42,10 @@ Page({
   },
 
   goToCourseGuide: function (e) {
-    var ind = parseInt(e.currentTarget.dataset.index)
-    //console.error("adsfasdfasdf" + ind)
+    var course_id = e.currentTarget.dataset.course_id;
+    console.log("adsfasdfasdf" + course_id)
     wx.navigateTo({
-      url: '../course/course?course_upid='+this.data.lst[ind].courseId
+      url: '../course/course?course_id='+course_id
     });
   }
 })

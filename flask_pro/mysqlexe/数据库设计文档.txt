@@ -50,6 +50,9 @@ create table percourse_info(
 	vedio_url varchar(255), 单课相关视频的url地址
 	pcourse_intro text, 单课的简介
 	pcourse_pageimgurl varchar(255),单课封面的地址
+	type varchar(20), 课程的类型 图画书还是文字书
+	year varchar(4) , 课程适合的年级
+	theme varchar(30), 课程的主题
 	primary key(pcourse_id)
 );
 
@@ -59,7 +62,7 @@ create table percourse_info(
 外键：scourse_id 参照 setcourse_info
       pcourse_id 参照 percourse_info
 create table s_p_class_info(
-	id varchar(15), 主键
+	id int, 主键
 	scourse_id varchar(15), 套课id
 	pcourse_id varchar(15), 单课id
 	thenumber int(2), 单课在该套课中的节次
@@ -74,7 +77,7 @@ create table s_p_class_info(
 外键：scourse_id 参照 setcourse_info
       pcourse_id 参照 percourse_info
 create table problems(
-	pro_id varchar(15),题号
+	pro_id int,题号
 	pro_stem text,题干
 	choice text,选项内容
 	answer char(1),答案 A,B,C,D
@@ -142,7 +145,7 @@ create table homework_info(
 	pcourse_id varchar(15),单课id
 	done int,标记位  已提交,已批改（3） 已提交，未批改（2） 未提交，未批改（1）
 	comment text,老师的批改结果
-	store_url char(255),学生上传的url地址
+	store_url char(255),
 	primary key(homework_id),
 	foreign key(class_id) references class_info(class_id) on delete cascade on update cascade,
 	foreign key(stu_id) references student_info(stu_id) on delete cascade on update cascade,

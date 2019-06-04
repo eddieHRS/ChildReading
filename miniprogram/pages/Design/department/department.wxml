@@ -4,7 +4,7 @@
   <view class="tui-picker-name">课程列表</view>
 </view>
 
- <view class='card-class' wx:for="{{lst}}" wx:key='courseTitle' data-index='{{index}}' bindtap='goToCourseGuide'>
+ <view class='card-class' wx:for="{{lst}}" wx:key='courseTitle' data-index='{{index}}' bindtap='goToCourseGuide' data-course_id='{{item.Course_ID}}'>
   <view class='class-simple'>
     <view class='table'>
     <view class='tr'>

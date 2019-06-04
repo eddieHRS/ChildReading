@@ -23,15 +23,12 @@ Page({
     ],
 //跳转相关  
     jumpList: ['11', '12', '13', '21', '22', '23', '31', '32', '33'],
-
-
-
   },
   
   onLoad : function () {
     var that = this
     wx.request({
-      url: 'http://127.0.0.1:5000/funid0',
+      url: 'http://127.0.0.1:5000/funid1',
       method: "GET",
       data: {
         'func_id': 1
@@ -81,7 +78,7 @@ Page({
   },
 
   //跳转+传值
-  clickjump: function(e) {
+  clickjump_old: function(e) {
     var that = this;
     var tmp = e.currentTarget.dataset.value;
     //app.globalData.jumpIndex = tmp;
@@ -91,7 +88,7 @@ Page({
       url: '../department/department',
     })
   },
-  clickjump2: function (e) {
+  clickjump2_old: function (e) {
     var that = this;
     var tmp = e.currentTarget.dataset.value;
     //app.globalData.jumpIndex = tmp;
@@ -100,5 +97,20 @@ Page({
     wx.navigateTo({
       url: '../buyset/buyset',
     })
-  }
+  },
+  clickjump: function (e) {
+    var that = this;
+    //type是不同的课的种类
+    //0  3-6岁  1 7-9岁 2 10-12岁  3 动物朋友 4 探险奇遇 5成长故事
+    var type = e.currentTarget.dataset.value;
+    var url = '../department/department' + '?' + 'type=' + type;
+    console.log(url);
+    //app.globalData.jumpIndex = tmp;
+    //console.log(app.globalData.jumpIndex)
+    // wx.setStorageSync('jumpIndex', tmp)
+    wx.navigateTo({
+      url: url,
+    })
+  },
+  
 })

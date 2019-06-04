@@ -4,6 +4,6 @@ conn = pymysql.connect(
     port=3306,
     user='root',
     password='mysql',
-    database='university',
-    charset='utf8'
+    database='childreading',
+    charset='utf8mb4'
 )

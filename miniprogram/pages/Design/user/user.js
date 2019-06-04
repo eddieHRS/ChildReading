@@ -45,16 +45,16 @@ Page({
     //交互
     var that = this
     wx.request({
-      url: 'http://127.0.0.1:3000',
-      method: "POST",
+      url: 'http://127.0.0.1:5000/user',
+      method: "GET",
       data: {
         //stu_id
       },
       header: { 'Content_Type': 'application/x-www-form-urlencoded' },
       success: function(res) {
         that.setData({
-          credits: res.data.credits,
-          ranks: res.data.ranks
+          credits: res.data.data.credits,
+          ranks: res.data.data.ranks
         })
       }
     })
