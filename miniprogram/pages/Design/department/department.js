@@ -43,7 +43,7 @@ Page({
 
   goToCourseGuide: function (e) {
     var course_id = e.currentTarget.dataset.course_id;
-    console.log("adsfasdfasdf" + course_id)
+    console.log("course_id" + course_id)
     wx.navigateTo({
       url: '../course/course?course_id='+course_id
     });

@@ -13,8 +13,8 @@ Page({
 
   },
 
-  onLoad : function () {
-    var that = this
+  onLoad : function (e) {
+    var that = this;
     wx.request({
       url: 'http://127.0.0.1:5000/funid3',
       method: "GET",

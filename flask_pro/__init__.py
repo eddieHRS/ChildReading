@@ -63,7 +63,7 @@ def funid2():
         "coursePrice": float(re[1]),
         "time": "2019-02-23",
         "courseContent": re[2],
-        "teacherIntro": "这是一段教师简介"
+        "teacherIntro": "上海市优秀教师，十大文明教师称号"
     }
     return jsonify(resp)
 
@@ -100,6 +100,16 @@ def user():
         'ranks': 3000
     }
     return jsonify(resp)
+
+
+# @app.route('/myclass')
+# def myclass():
+#     resp = {'code': 200, 'msg': '操作成功', 'data': {}}
+#     req = request.values
+#     stu_id = req['stu_id']
+#     sql =
+
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)

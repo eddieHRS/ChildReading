@@ -36,6 +36,19 @@ Page({
   },
   getPay: function(e) {
     //调用支付接口
+    //支付成功后加入到我的课程中
+    wx.request({
+      url: 'http://127.0.0.1:5000/add_pcourse',
+      method : 'GET',
+      data : {
+        stu_id:'',
+        pcourse_id: e.course_id
+      },
+      header: { 'Content_Type': 'application/x-www-form-urlencoded' },
+      success : function(res){
+        console.log('pay sucess')
+      }
+    })
   },
   getMall: function(e) {
     wx.navigateTo({

@@ -9,8 +9,6 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-
-//用户信息
     credits: 0,
     ranks: 0,
   
@@ -23,7 +21,12 @@ Page({
       })
       return
     }
-
+    wx.login({
+      success: function (res){
+        console.log('asasdas');
+        console.log(res.code);
+      }
+    })
     // 获取用户信息
     wx.getSetting({
       success: res => {

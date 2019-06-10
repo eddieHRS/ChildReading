@@ -13,6 +13,17 @@ cursor = conn.cursor()
 #         cursor.execute(sql)
 # conn.commit()
 #
+#s_p_class_info 套课单课信息表
+with open('class.txt', 'r', encoding='utf-8') as f:
+    for line in f.readlines():
+        line = line.split()
+        t = line[0].split('-')
+        # print(t, line[1])
+        sql = "insert into s_p_class_info (scourse_id, pcourse_id, thenumber) values ('%s','%s','%s')" % (t[0], line[0],t[1])
+        # print(sql)
+        cursor.execute(sql)
+conn.commit()
+
 
 #处理主题
 # with open('classtheme.txt', 'r', encoding='utf-8') as f:
