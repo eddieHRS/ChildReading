@@ -2,15 +2,17 @@
 <view class='card-class'>
 <!-- 课程待替换 -->
 <!-- 默认数组当前项的下标为index 当前项的变量名为item-->
-  <view class='class-simple'  wx:for="{{course_list}}" wx:key="unique">
+  <view class='class-simple'  wx:for="{{courseList}}" wx:key="unique">
     <view class='table'>
     <view class='tr'>
       <view class='td'><image src='{{item.pageImgUrls}}' class='img' mode='widthFix' style='width:90rpx; border: 1rpx solid rgba(0,0,0, 0.1)'></image></view>
       <view class='td-text'>
-      <view class='td-text-h'>{{item.courseTitle}}</view>
-      {{item.courseProgress}}</view>
+        <view class='td-text-h'>加入的班级名：{{item.name}}</view>
+        当前的阶段：{{item.stage}}
+      </view>
     </view>
     </view>
+    <view class='btn-blue' bindtap='goToCoursePage' data-class_id="{{item.class_id}}">继续学习</view>
   </view>
-  <view class='btn-blue' bindtap='goToCoursePage'>继续学习</view>
+  
 </view>

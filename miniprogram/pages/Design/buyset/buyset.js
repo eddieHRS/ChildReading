@@ -1,59 +1,46 @@
-var titleList = ['阅读写作课', '阅读绘画课', '成长阅读课']
-
+var app = getApp();
 Page({
   data:{
-//标题
-  index: 1,
-
-//更新:显示套课课程
-  set_id: 1,
+  set_title: '',
   set_classList: ['《七只瞎老鼠》','《拼拼凑凑的变色龙》','《你很特别》','《黎明》','《迟到大王》'],
-  set_teacher : '叶凤春',
+  set_banji: [] //开设的班级
 
   },
-  onLoad: function () {
+  onLoad: function (e) {
     var that = this
     wx.request({
       url: 'http://127.0.0.1:5000/buyset',
       method: "GET",
       data: {
+        //sid:套课的id
+        sid: e.scourse
       },
       header: { 'Content_Type': 'application/x-www-form-urlencoded' },
       success: function (res) {
         that.setData({
+          set_title: res.data.data.set_title,
           set_classList: res.data.data.set_classList,
-          set_teacher: res.data.data.set_teacher,
+          set_banji: res.data.data.set_banji,
         })
       }
     })
-    wx.getStorage({
-      key: 'jumpIndex',
-      success: function (res) {
-        //console.log(res)
-        var i = res.data-6
-        wx.setNavigationBarTitle({
-          title: titleList[i],
-        })
-        that.setData({ 
-          index: i, 
-          set_id: i
-          })
-      }
-    })
-    //支付
-    wx.requestPayment(
-      {
-        'timeStamp': '',
-        'nonceStr': '',
-        'package': '',
-        'signType': 'MD5',
-        'paySign': '',
-        'success': function (res) { },
-        'fail': function (res) { },
-        'complete': function (res) { }
-      })
   },
-  pay: function() {
-    
-  }
+  //支付并且把课程加入到已选课表中
+  payandadd: function(e) {
+    console.log("需要支付的class_id", e.currentTarget.dataset.class_id)
+    console.log("openid", app.globalData.openid)
+    wx.request({
+      url: 'http://127.0.0.1:5000/payandadd',
+      data: {
+        class_id: e.currentTarget.dataset.class_id,
+        open_id: app.globalData.openid
+      },
+      method: 'GET',
+      success: function(res){
+        console.log(res)
+      }
+    })
+  },
+
+
 })

@@ -4,9 +4,6 @@ var titleList = [
 ]
 Page({
   data: {
-    //数据库中某类课的全部课程 n个
-    lst:{},
-    index: 1
   },
   onLoad:function (e) {
     var that = this
@@ -24,17 +21,6 @@ Page({
           lst : res.data.data
         })
       }
-    })
-    wx.getStorage({
-      key: 'jumpIndex',
-      success: function (res) {
-        //console.log(res)
-        var i = res.data
-        wx.setNavigationBarTitle({
-        title: '课程',
-        })
-        that.setData({index: res.data})
-      } 
     })
   },
   onShow: function() {

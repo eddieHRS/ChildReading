@@ -23,8 +23,8 @@ Page({
     }
     wx.login({
       success: function (res){
-        console.log('asasdas');
-        console.log(res.code);
+        // console.log('asasdas');
+        // console.log(res.code);
       }
     })
     // 获取用户信息

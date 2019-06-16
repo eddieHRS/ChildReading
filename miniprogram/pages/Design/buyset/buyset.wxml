@@ -5,13 +5,15 @@
 
 <view class='card-class' wx:for="{{set_classList}}" wx:key=''>
       <view class='text'>{{item}}</view>
-
 </view>
 
-<view class="tui-picker-content">
-  <view class="tui-picker-name">授课老师</view>
+<view class='card-class' wx:for="{{set_banji}}" wx:key>
+  <view class='tui-picker-content'>授课老师:{{item.tea_name}}</view>
+  <view class='tui-picker-content'>开始时间:{{item.start_time}}</view>
+  <view class='tui-picker-content'>结束时间:{{item.end_time}}</view>
+  <button class='btn3' bindtap='payandadd' data-class_id="{{item.class_id}}">加入课程</button>
+  
 </view>
-<view class='text'>{{set_teacher}}</view>
+</view>
 
-<button class='btn3' bindtap='pay'>加入课程</button>
-</view>
+

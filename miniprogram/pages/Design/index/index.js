@@ -76,38 +76,22 @@ Page({
       return
     }  
   },
-
-  //跳转+传值
-  clickjump_old: function(e) {
+  //套课展示通道
+  clickjump2: function (e) {
     var that = this;
-    var tmp = e.currentTarget.dataset.value;
-    //app.globalData.jumpIndex = tmp;
-    //console.log(app.globalData.jumpIndex)
-    wx.setStorageSync('jumpIndex', tmp)
+    var scourse = e.currentTarget.dataset.setcourse;
     wx.navigateTo({
-      url: '../department/department',
+      url: '../buyset/buyset?scourse='+scourse,
     })
   },
-  clickjump2_old: function (e) {
-    var that = this;
-    var tmp = e.currentTarget.dataset.value;
-    //app.globalData.jumpIndex = tmp;
-    //console.log(app.globalData.jumpIndex)
-    wx.setStorageSync('jumpIndex', tmp)
-    wx.navigateTo({
-      url: '../buyset/buyset',
-    })
-  },
+  //单课展示通道
   clickjump: function (e) {
     var that = this;
     //type是不同的课的种类
     //0  3-6岁  1 7-9岁 2 10-12岁  3 动物朋友 4 探险奇遇 5成长故事
     var type = e.currentTarget.dataset.value;
-    var url = '../department/department' + '?' + 'type=' + type;
+    var url = '../department/department?type=' + type;
     console.log(url);
-    //app.globalData.jumpIndex = tmp;
-    //console.log(app.globalData.jumpIndex)
-    // wx.setStorageSync('jumpIndex', tmp)
     wx.navigateTo({
       url: url,
     })

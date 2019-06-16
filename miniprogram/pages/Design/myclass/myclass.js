@@ -1,16 +1,16 @@
 // pages/Design/myclass/myclass.js
+var app = getApp();
 Page({
 
   data: {
     //已选课程
-    course_list:[
+    courseList:[
       {
-        pageImgUrls:
-          'https://i.loli.net/2019/02/08/5c5d63058df87.png',
-        courseTitle: '标题从数据库获取1',
-        courseProgress: '(课程进度从数据库获取)当前进度：第n课/单课课名',
-        courseLinks: '#',
-      },
+        pageImgUrls: 'https://i.loli.net/2019/02/08/5c5d63058df87.png',
+        name: '班级名字',
+        stage: '当前的进度',
+        class_id: 'c001'
+      }
     ],
   },
 
@@ -19,14 +19,14 @@ Page({
     var that = this
     wx.request({
       url: 'http://127.0.0.1:5000/myclass',
-      method: "POST",
+      method: "GET",
       data: {
-        stu_id:'1016001'
+        stu_id: app.globalData.openid
       },
-      header: { 'Content_Type': 'application/x-www-form-urlencoded' },
       success: function (res) {
+        console.log(res.data.data)
         that.setData({
-          courseList: res.data.course_list
+          courseList: res.data.data
         })
       }
     })
@@ -41,9 +41,11 @@ Page({
   },
 
 
-  goToCoursePage: function () {
+  goToCoursePage: function (e) {
+    var class_id = e.currentTarget.dataset.class_id;
+    console.log(class_id)
     wx.navigateTo({
-      url: '../coursepage/coursepage'
+      url: '../coursepage/coursepage?class_id='+class_id
     });
   },
 })
