@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>题目增添界面</title>
+</head>
+<body>
+	{%if msg%}
+	<h1>{{msg}}</h1>
+	{% endif %}
+	<form action={{url_for('doaddques')}} method="GET">
+		题干：<input type="text" name="stem"></br>
+		选项:<input type="text" name="choice"></br>
+		答案:<input type="text" name="ans"></br>
+		对应的单课id:<input type="text" name="pid"></br>
+		对应的题号:<input type="text" name="pnum"></br>
+		<input type="submit" name="submit">
+	</form>
+
+</body>
+</html>

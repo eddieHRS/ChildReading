@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>题库查看</title>
+</head>
+<body>
+	<form method="GET" action={{url_for('showques')}}>
+		<input type="text" name="pcourse_id" placeholder="支持单课id的模糊搜索">
+		<input type="submit" name="">
+	</form>
+	<table border="1px">
+		<tr>
+			<td>题目id</td>
+			<td>题干</td>
+			<td>选项</td>
+			<td>答案</td>
+			<td>是否是客观题<td>
+			<td>对应的单课id</td>
+			<td>题号</td>
+			<td>操作</td>
+			<td>详情页</td>
+		</tr>
+		{% for c in ques %}
+		<tr>
+			<td>{{c.pro_id}}</td>
+			<td>{{c.pro_stem}}</td>
+			<td>{{c.choice}}</td>
+			<td>{{c.answer}}</td>
+			<td>{{c.flag}}<td>
+			<td>{{c.pcourse_id}}<td>
+			<td>{{c.pro_num}}<td>
+			<td><a>修改</a></td>
+			<td><a href={{url_for('delques', pro_id=c.pro_id)}}>删除</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+	<a href={{url_for('root_index')}}>返回</a>
+</body>
+</html>

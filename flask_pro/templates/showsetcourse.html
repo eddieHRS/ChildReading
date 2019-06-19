@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>所有套课信息</title>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td>套课id</td>
+			<td>套课名字</td>
+			<td>套课主题</td>
+			<td>套课积分</td>
+			<td>套课价格<td>
+			<td>套课简介</td>
+			<td>操作</td>
+			<td>详情页</td>
+		</tr>
+		{% for c in setcourse_info %}
+		<tr>
+			<td>{{c.id}}</td>
+			<td>{{c.title}}</td>
+			<td>{{c.theme}}</td>
+			<td>{{c.credit}}</td>
+			<td>{{c.price}}<td>
+			<td>{{c.intro}}<td>
+			<td><a href={{url_for('modifysetcourse', scourse_id=c.id )}}>修改</a></td>
+			<td><a href={{url_for('delscourse',scourse_id=c.id )}}>删除</a></td>
+			<td><a>详情页</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+	<a href={{url_for('addsetcourse')}}>添加套课</a>
+	
+</body>
+</html>

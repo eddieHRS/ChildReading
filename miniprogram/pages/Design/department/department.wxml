@@ -8,9 +8,10 @@
   <view class='class-simple'>
     <view class='table'>
     <view class='tr'>
-      <view class='td'><image src='{{item.pageImgUrls}}' mode='widthFix' style='width:90rpx; border: 1rpx solid rgba(0,0,0, 0.1)'></image></view>
+      <!-- <view class='td'><image src='{{item.pageImgUrls}}' mode='widthFix' style='width:90rpx; border: 1rpx solid rgba(0,0,0, 0.1)'></image></view> -->
       <view class='td-text'>
       <view class='td-text-h'>{{item.courseTitle}}</view>
+       <view class='td-text-h'>{{item.Course_ID}}</view>
       {{item.courseIntro}}</view>
     </view>
     </view>

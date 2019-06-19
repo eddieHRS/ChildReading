@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>教师信息修改界面</title>
+</head>
+<body>
+	{% if msg%}
+	<h1>{{msg}}</h1>
+	{% endif %}
+	<form method="GET" action={{url_for('domodifyteacher', tea_id=tea_id)}}>
+		新密码：<input type="text" name="newpassword">
+		新邮箱：<input type="text" name="newemail">
+		新名字:<input type="text" name="newname">>
+		简介：<input type="text" name="newintro">
+		<input type="submit" name="">
+	</form>
+</body>
+</html>

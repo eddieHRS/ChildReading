@@ -1,0 +1,11 @@
+<html>
+<title>首页</title>
+<body>
+{% if Msg %}
+<h1>{{Msg}}</h1>
+{% endif %}
+<!-- url_for 找到对应函数 -->
+<a href={{url_for('showclass')}}>查看班级情况</a>
+<a href={{url_for('logout')}}>注销</a>
+</body>
+</html>

@@ -1,18 +1,30 @@
 <!--pages/Design/myclass/myclass.wxml-->
-<view class='card-class'>
-<!-- 课程待替换 -->
-<!-- 默认数组当前项的下标为index 当前项的变量名为item-->
-  <view class='class-simple'  wx:for="{{courseList}}" wx:key="unique">
+  <view class='class-simple'  wx:for="{{classList}}" wx:key="unique">
+  <view class='card-class'>
     <view class='table'>
     <view class='tr'>
-      <view class='td'><image src='{{item.pageImgUrls}}' class='img' mode='widthFix' style='width:90rpx; border: 1rpx solid rgba(0,0,0, 0.1)'></image></view>
-      <view class='td-text'>
-        <view class='td-text-h'>加入的班级名：{{item.name}}</view>
+      <view class='tr-text'>
+        加入的班级名：{{item.name}}
         当前的阶段：{{item.stage}}
       </view>
     </view>
     </view>
-    <view class='btn-blue' bindtap='goToCoursePage' data-class_id="{{item.class_id}}">继续学习</view>
+    <view class='btn-blue' bindtap='goToCoursePage' data-class_id="{{item.class_id}}" data-stage="{{item.stage}}" data-type="0">继续学习</view>
+    <view class='btn-blue' bindtap='delsetcourse' data-class_id="{{item.class_id}}">退课</view>
   </view>
+  </view>
+
+  <view class='class-simple' wx:for="{{pcourseList}}" wx:key="unique">
+  <view class='card-class'>
+  <view class='table'>
+    <view class='tr'>
+      <view class='tr-text'>单课名称：{{item.name}}</view>
+    </view>
+  </view>
+  <!-- {{item.pcourse_id}} -->
+  <view class='btn-blue' bindtap='goToCoursePage' data-pcourse_id="{{item.pcourse_id}}" data-type="1">继续学习</view>
+  <view class='btn-blue' bindtap='delpercourse' data-pcourse_id="{{item.pcourse_id}}">退课</view>    
+  </view>
+  </view>
+
   
-</view>

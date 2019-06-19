@@ -5,5 +5,6 @@ conn = pymysql.connect(
     user='root',
     password='mysql',
     database='childreading',
+    # database='readingmanagement',
     charset='utf8mb4'
 )

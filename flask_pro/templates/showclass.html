@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>所有班级信息</title>
+</head>
+<body>
+	<h1>你好，教师{{tea_id}}, 你有以下正在进行的课程</h1>
+	<table border="1px">
+		<tr>
+			<td>class_id</td>
+			<td>班级名字</td>
+			<td>开始时间</td>
+			<td>结束时间</td>
+			<td>当前阶段<td>
+			<td>花名册</td>
+			<td>操作</td>
+		</tr>
+		{% for c in classinfo %}
+		<tr>
+			<td>{{c.class_id}}</td>
+			<td>{{c.class_name}}</td>
+			<td>{{c.start_time}}</td>
+			<td>{{c.end_time}}</td>
+			<td>{{c.stage}}<td>
+			<td><a href={{url_for('showStuByClassid', class_id=c.class_id )}}>点击查看</a></td>
+			<td><a href={{url_for('nextPercourse', class_id=c.class_id )}}>进行下一节课</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+	
+</body>
+</html>

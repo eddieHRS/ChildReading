@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>套课信息修改界面</title>
+</head>
+<body>
+	{% if msg%}
+	<h1>{{msg}}</h1>
+	{% endif %}
+	<form method="GET" action={{url_for('domodifysetcourse', scourse_id=scourse_id)}}>
+		新标题：<input type="text" name="newtitle">
+		新主题：<input type="text" name="newtheme">
+		新价格:<input type="text" name="newprice">
+		新积分:<input type="text" name="newcredit">
+		简介：<input type="text" name="newintro">
+		<input type="submit" name="">
+	</form>
+</body>
+</html>

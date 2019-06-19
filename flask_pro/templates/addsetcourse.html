@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>套课增加界面</title>
+</head>
+<body>
+	{% if msg%}
+	<h1>{{msg}}</h1>
+	{% endif %}
+	<form method="GET" action={{url_for('doaddsetcourse')}}>
+		ID：<input type="text" name="id">
+		标题:<input type="text" name="title">
+		主题:<input type="text" name="theme">
+		积分：<input type="text" name="credit">
+		价格：<input type="text" name="price">
+		简介：<input type="text" name="intro">
+		<input type="submit" name="">
+	</form>
+	<a href={{url_for('showsetcourse')}}>返回</a>
+</body>
+</html>

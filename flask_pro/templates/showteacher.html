@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>教师信息</title>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td>教师id</td>
+			<td>登陆密码</td>
+			<td>邮箱</td>
+			<td>姓名</td>
+			<td>简介<td>
+			<td>操作<td>
+		</tr>
+		{% for c in teacherinfo %}
+		<tr>
+			<td>{{c.tea_id}}</td>
+			<td>{{c.password}}</td>
+			<td>{{c.tea_email}}</td>
+			<td>{{c.tea_name}}</td>
+			<td>{{c.tea_intro}}<td>
+			<td><a href={{url_for('modifyteacher', tea_id=c.tea_id )}}>修改</a></td>
+			<td><a href={{url_for('delteacher', tea_id=c.tea_id )}}>删除</a></td>
+		</tr>
+		{%endfor%}
+	</table>
+	<a href={{url_for('addteacher')}}>增添教师</a>
+	<a href={{url_for('root_index')}}>返回</a>
+</body>
+</html>

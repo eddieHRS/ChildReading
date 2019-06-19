@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>教师增加界面</title>
+</head>
+<body>
+	{% if msg%}
+	<h1>{{msg}}</h1>
+	{% endif %}
+	<form method="GET" action={{url_for('doaddteacher')}}>
+		ID：<input type="text" name="id">
+		密码：<input type="text" name="password">
+		邮箱：<input type="text" name="email">
+		名字:<input type="text" name="name">>
+		简介：<input type="text" name="intro">
+		<input type="submit" name="">
+	</form>
+	<a href={{url_for('showteacher')}}>返回</a>
+</body>
+</html>

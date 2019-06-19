@@ -1,0 +1,17 @@
+<html>
+<title>登陆界面</title>
+<body>
+{% if errMsg %}
+<h1>{{errMsg}}</h1>
+{% endif %}
+<!-- url_for 找到对应函数 -->
+<form action={{url_for('dologin')}} method="GET">
+	ID号：
+	<input type="text" name="id">
+	密码：
+	<input type="password" name="password">
+	<input type="submit" name="submit">
+
+</form>
+</body>
+</html>

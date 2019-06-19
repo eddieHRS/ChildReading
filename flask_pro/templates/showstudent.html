@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>学生信息</title>
+</head>
+<body>
+	<table border="1px">
+		<tr>
+			<td>stu_id</td>
+			<td>积分</td>
+		</tr>
+		{% for c in stu_info %}
+		<tr>
+			<td>{{c.stu_id}}</td>
+			<td>{{c.credit}}</td>
+		</tr>
+		{%endfor%}
+	</table>
+	
+</body>
+</html>

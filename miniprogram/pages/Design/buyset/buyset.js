@@ -38,6 +38,11 @@ Page({
       method: 'GET',
       success: function(res){
         console.log(res)
+        wx.showToast({
+          title: '套课加入成功',
+          icon: 'success',
+          duration: 2000//持续的时间
+        })
       }
     })
   },
